@@ -12,7 +12,7 @@
 
 ## Aviso:
 <ol>
-  <li>MinimaAPI ainda não integrada a um banco de dados!.</li>
+  <li>Ainda não integrada a um banco de dados!.</li>
 </ol>
 
 ## Funções:
