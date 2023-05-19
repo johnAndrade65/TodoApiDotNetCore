@@ -12,7 +12,7 @@
 
 ## Aviso:
 <ol>
-  <li>Ainda não integrada a um banco de dados!.</li>
+  <li>Use suas credenciais de login do SQLServer no arquivo "appsettings.Development.json" para logar ao seu banco de dados(Database).</li>
 </ol>
 
 ## Funções:
@@ -22,14 +22,15 @@
   <li>- Função de Deletar(DELETE) atráves do id especificado.</li>
   <li>- Função de Atualizar(PUT) atráves do id especificado.</li>
   <li>- Função de Adicionar(POST) dados a API atráves do id especificado.</li>
+  <li>- Adição de comentarios necessários no "Program.cs".</li>
 </ol>
 
-## atualização, alpha 0.0.2:
+## atualização, alpha 0.0.3:
 <ol>
   <li>- Funções CRUD(Create, Read, Update e Delete) com nova estrutura.</li>
-  <li>- Adição de comentarios necessários no "Program.cs".</li>
-  <li>- Criação da de propriedade "Secret" no arquivo "Todo.cs".</li>
-  <li>- Criação da classe TodoItemDTO para adição de mensagem secreta.</li>
+  <li>- Criação da de propriedade "Message" no arquivo "Todo.cs" para o CRUD.</li>
+  <li>- Adição de string de conexão para conectar a API ao banco de dados.</li>
+  <li>- Correção de bugs de conexão.</li>
 </ol>
 
 ## Rodar o Back-end:

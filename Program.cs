@@ -2,8 +2,10 @@ using TodoAPI;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+//Adição do TodoDb(Contexto do database) a injeção de dependencia para usar no database do SQL Server
+builder.Services.AddDbContext<TodoDb>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 var app = builder.Build();
 
 //URL padrão que se repetia em todas as requisições salva como valor de variavel para ser usada nas requisições
@@ -44,7 +46,7 @@ static async Task<IResult> GetTodo(int id, TodoDb db)
 //Método de requisição POST(Criar novos dados)
 static async Task<IResult> CreateTodo(TodoItemDTO todoItemDTO, TodoDb db)
 {
-    var todoItem = new Todo { IsComplete = todoItemDTO.IsComplete, Name = todoItemDTO.Name };
+    var todoItem = new Todo { IsComplete = todoItemDTO.IsComplete, Name = todoItemDTO.Name, Message = todoItemDTO.Message };
 
     db.Todos.Add(todoItem);
     await db.SaveChangesAsync();

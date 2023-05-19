@@ -65,3 +65,8 @@ C:\Projetos\TodoAPI\obj\Debug\net7.0\refint\TodoAPI.dll
 C:\Projetos\TodoAPI\obj\Debug\net7.0\TodoAPI.pdb
 C:\Projetos\TodoAPI\obj\Debug\net7.0\TodoAPI.genruntimeconfig.cache
 C:\Projetos\TodoAPI\obj\Debug\net7.0\ref\TodoAPI.dll
+C:\Projetos\TodoAPI\bin\Debug\net7.0\Humanizer.dll
+C:\Projetos\TodoAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Projetos\TodoAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Projetos\TodoAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Projetos\TodoAPI\bin\Debug\net7.0\System.CodeDom.dll
