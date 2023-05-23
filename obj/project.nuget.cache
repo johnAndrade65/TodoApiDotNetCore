@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9Ysnc4j5srzf9dHcqTOwSFuhyw/vpXXXSY3TdhQIh16+rb8lznFE0JxMv8sYHbWoRJNQnj9+IIa80w1zpjBHig==",
+  "dgSpecHash": "7ddelAkVaosiXxlJkQZyU3pf7oSiMF6rnkUdAS1IRiVv488qJ6gynwMQ1mXJPLu7qfOzlS/erokSPf89VYsUTQ==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\TodoAPI\\TodoAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pichau\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\7.0.5\\microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

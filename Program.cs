@@ -9,26 +9,27 @@ builder.Services.AddDbContext<TodoDb>(opt => opt.UseSqlServer(builder.Configurat
 var app = builder.Build();
 
 //URL padrão que se repetia em todas as requisições salva como valor de variavel para ser usada nas requisições
-RouteGroupBuilder todoItemsUrl = app.MapGroup("/todoitems");
+RouteGroupBuilder todoItemsUrl = app.MapGroup("/itens");
 
-todoItemsUrl.MapGet("/", GetAllTodos);
-todoItemsUrl.MapGet("/complete", GetCompleteTodos);
-todoItemsUrl.MapGet("/{id}", GetTodo);
-todoItemsUrl.MapPost("/", CreateTodo);
-todoItemsUrl.MapPut("/{id}", UpdateTodo);
+//Endpoints
+todoItemsUrl.MapGet("/", GetAll);
+todoItemsUrl.MapGet("/complete", GetComplete);
+todoItemsUrl.MapGet("/{id}", GetById);
+todoItemsUrl.MapPost("/", CreateItem);
+todoItemsUrl.MapPut("/{id}", UpdateItem);
 todoItemsUrl.MapDelete("/{id}", DeleteTodo);
 
 //Método para rodar o app(API)
 app.Run();
 
 //Método de requisição GET All(Obter todos valores)
-static async Task<IResult> GetAllTodos(TodoDb db)
+static async Task<IResult> GetAll(TodoDb db)
 {
     return TypedResults.Ok(await db.Todos.Select(x => new TodoItemDTO(x)).ToArrayAsync());
 }
 
 //Método de requisição GET Complete(Obter apens valores onde "complete" for true)
-static async Task<IResult> GetCompleteTodos(TodoDb db)
+static async Task<IResult> GetComplete(TodoDb db)
 {
     return TypedResults.Ok(
         await db.Todos.Where(t => t.IsComplete).Select(x => new TodoItemDTO(x)).ToListAsync()
@@ -36,7 +37,7 @@ static async Task<IResult> GetCompleteTodos(TodoDb db)
 }
 
 //Método de requisição GET(Obter único valor via ID)
-static async Task<IResult> GetTodo(int id, TodoDb db)
+static async Task<IResult> GetById(int id, TodoDb db)
 {
     return await db.Todos.FindAsync(id) is Todo todo
         ? TypedResults.Ok(new TodoItemDTO(todo))
@@ -44,7 +45,7 @@ static async Task<IResult> GetTodo(int id, TodoDb db)
 }
 
 //Método de requisição POST(Criar novos dados)
-static async Task<IResult> CreateTodo(TodoItemDTO todoItemDTO, TodoDb db)
+static async Task<IResult> CreateItem(TodoItemDTO todoItemDTO, TodoDb db)
 {
     var todoItem = new Todo { IsComplete = todoItemDTO.IsComplete, Name = todoItemDTO.Name, Message = todoItemDTO.Message };
 
@@ -57,7 +58,7 @@ static async Task<IResult> CreateTodo(TodoItemDTO todoItemDTO, TodoDb db)
 }
 
 //Método de requisição UPDATE(Atualizar dados existentes de acordo com a ID inserida)
-static async Task<IResult> UpdateTodo(int id, TodoItemDTO todoItemDTO, TodoDb db)
+static async Task<IResult> UpdateItem(int id, TodoItemDTO todoItemDTO, TodoDb db)
 {
     var todo = await db.Todos.FindAsync(id);
 

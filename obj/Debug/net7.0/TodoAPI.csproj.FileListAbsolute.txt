@@ -70,3 +70,4 @@ C:\Projetos\TodoAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Projetos\TodoAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Projetos\TodoAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Projetos\TodoAPI\bin\Debug\net7.0\System.CodeDom.dll
+C:\Projetos\TodoAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

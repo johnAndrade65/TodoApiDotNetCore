@@ -25,11 +25,13 @@
   <li>- Adição de comentarios necessários no "Program.cs".</li>
 </ol>
 
-## atualização, alpha 0.0.3:
+## atualização, alpha 0.0.4:
 <ol>
   <li>- Funções CRUD(Create, Read, Update e Delete) com nova estrutura.</li>
   <li>- Criação da de propriedade "Message" no arquivo "Todo.cs" para o CRUD.</li>
+  <li>- Separação dos arquivos que representam (entidades de dados/objetos de transferência de dados) para o diretorio "Models".</li>
   <li>- Adição de string de conexão para conectar a API ao banco de dados.</li>
+  <li>- Adição de comentarios necessários no "Todo.cs", "TodoDb.cs" e "TodoItemDTO".</li>
   <li>- Correção de bugs de conexão.</li>
 </ol>
 
