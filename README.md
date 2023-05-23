@@ -26,7 +26,7 @@
   <li>- Adição de comentarios necessários no "Program.cs".</li>
 </ol>
 
-## atualização, alpha 0.0.4:
+## Atualização, alpha 0.0.4:
 <ol>
   <li>- Funções CRUD(Create, Read, Update e Delete) com nova estrutura.</li>
   <li>- Criação da de propriedade "Message" no arquivo "Todo.cs" para o CRUD.</li>
