@@ -1,23 +1,34 @@
 using TodoAPI;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Adição do TodoDb(Contexto do database) a injeção de dependencia para usar no database do SQL Server
-builder.Services.AddDbContext<TodoDb>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<TodoDb>(
+    opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+//Adição da autorização e autenticação
+builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+//Chamada para o uso dá autorização e autenticação
+app.UseAuthentication();
+app.UseAuthorization();
 
 //URL padrão que se repetia em todas as requisições salva como valor de variavel para ser usada nas requisições
 RouteGroupBuilder todoItemsUrl = app.MapGroup("/itens");
 
 //Endpoints
 todoItemsUrl.MapGet("/", GetAll);
-todoItemsUrl.MapGet("/complete", GetComplete);
+todoItemsUrl.MapGet("/complete", GetComplete).RequireAuthorization();
 todoItemsUrl.MapGet("/{id}", GetById);
-todoItemsUrl.MapPost("/", CreateItem);
-todoItemsUrl.MapPut("/{id}", UpdateItem);
-todoItemsUrl.MapDelete("/{id}", DeleteTodo);
+todoItemsUrl.MapPost("/", CreateItem).RequireAuthorization();
+todoItemsUrl.MapPut("/{id}", UpdateItem).RequireAuthorization();
+todoItemsUrl.MapDelete("/{id}", DeleteTodo).RequireAuthorization();
 
 //Método para rodar o app(API)
 app.Run();
@@ -47,7 +58,12 @@ static async Task<IResult> GetById(int id, TodoDb db)
 //Método de requisição POST(Criar novos dados)
 static async Task<IResult> CreateItem(TodoItemDTO todoItemDTO, TodoDb db)
 {
-    var todoItem = new Todo { IsComplete = todoItemDTO.IsComplete, Name = todoItemDTO.Name, Message = todoItemDTO.Message };
+    var todoItem = new Todo
+    {
+        IsComplete = todoItemDTO.IsComplete,
+        Name = todoItemDTO.Name,
+        Message = todoItemDTO.Message
+    };
 
     db.Todos.Add(todoItem);
     await db.SaveChangesAsync();
