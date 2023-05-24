@@ -27,7 +27,7 @@
 </ol>
 
 
-## atualização de segurança, alpha 0.0.4:
+## Atualização de segurança, alpha 0.0.4:
 <ol>
   <li>- Adição de autenticação viá Token pelo JWTBearer.</li>
   <li>- Criação da de propriedade "Message" no arquivo "Todo.cs" para o CRUD.</li>
