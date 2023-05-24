@@ -26,11 +26,8 @@
   <li>- Adição de comentarios necessários no "Program.cs".</li>
 </ol>
 
-<<<<<<< HEAD
+
 ## atualização de segurança, alpha 0.0.4:
-=======
-## Atualização, alpha 0.0.4:
->>>>>>> 5744ae82ec33a56021a61b95377b751e6c72d560
 <ol>
   <li>- Adição de autenticação viá Token pelo JWTBearer.</li>
   <li>- Criação da de propriedade "Message" no arquivo "Todo.cs" para o CRUD.</li>
